@@ -722,11 +722,13 @@ EM_JS(void, sargs_js_parse_url, (void), {
     for (let p = params.next(); !p.done; p = params.next()) {
         const key = p.value[0];
         const val = p.value[1];
-        withStackSave(() => {
+        {
+            var s = stackSave();
             const key_cstr = allocateUTF8OnStack(key);
             const val_cstr = allocateUTF8OnStack(val);
-            __sargs_add_kvp(key_cstr, val_cstr)
-        });
+            __sargs_add_kvp(key_cstr, val_cstr);
+            stackRestore(s);
+        }
     }
 });
 

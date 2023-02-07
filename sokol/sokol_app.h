@@ -4624,10 +4624,12 @@ EM_JS(void, sapp_js_remove_beforeunload_listener, (void), {
 EM_JS(void, sapp_js_add_clipboard_listener, (void), {
     Module.sokol_paste = (event) => {
         const pasted_str = event.clipboardData.getData('text');
-        withStackSave(() => {
+        {
+            var s = stackSave();
             const cstr = allocateUTF8OnStack(pasted_str);
             __sapp_emsc_onpaste(cstr);
-        });
+            stackRestore(s);
+        }
     };
     window.addEventListener('paste', Module.sokol_paste);
 });
@@ -4681,10 +4683,12 @@ EM_JS(void, sapp_js_add_dragndrop_listeners, (const char* canvas_name_cstr), {
         Module.sokol_dropped_files = files;
         __sapp_emsc_begin_drop(files.length);
         for (let i = 0; i < files.length; i++) {
-            withStackSave(() => {
+            {
+                var s = stackSave();
                 const cstr = allocateUTF8OnStack(files[i].name);
                 __sapp_emsc_drop(i, cstr);
-            });
+                stackRestore(s);
+            }
         }
         // FIXME? see computation of targetX/targetY in emscripten via getClientBoundingRect
         __sapp_emsc_end_drop(event.clientX, event.clientY);
