@@ -1,0 +1,4 @@
+/.clangd
+/build
+/compile_commands.json
+/local.mk
