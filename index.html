@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>chip8run</title>
+  <style>
+    body {
+      background-color: #f8f8f8;
+      font-family: sans-serif;
+      max-width: 70ch;
+      margin: auto;
+      padding-top: 2ch;
+      padding-bottom: 5ch;
+    }
+
+    .rom-list {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+
+    .item {
+      padding: 1ch;
+    }
+
+    .item img {
+      width: 256px;
+      height: 128px;
+      display: block;
+      margin-bottom: 1ch;
+      border: 1px solid;
+    }
+
+    tt {
+      background-color: #eee;
+      border: 1px solid;
+      padding: 0.05rem 0.15rem;
+    }
+
+    table {
+      border: 1px solid;
+    }
+
+    thead {
+      background-color: #000;
+      color: #f8f8f8;
+    }
+
+    td {
+      border: 1px solid;
+      padding: 0.5ch 1.5ch;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>chip8run</h1>
+
+<p>
+<strong>chip8run</strong> is an interpreter (or &quot;emulator&quot;) for <a href="https://en.wikipedia.org/wiki/CHIP-8">CHIP-8</a>: a bytecode format for the creation of video games for home computers made in the 1970s and 1980s like the COSMAC VIP.
+CHIP-8 programs drive a 64-by-32 pixel monochrome display, while taking input from a 4-by-4 hexadecimal keyboard.
+chip8run can run programs in the CHIP-8 format, often found with the <tt>.ch8</tt> suffix.
+</p>
+
+<p>
+Scroll down to try out chip8run with some games and demos in your web browser.
+</p>
+
+<h2>Controls</h2>
+
+<p>
+Modern CHIP-8 programs usually use <tt>WASD</tt> for directions, <tt>E</tt> to confirm and <tt>Q</tt> to cancel.
+These are also mapped to the cursor keys, spacebar/enter and backspace for convenience.
+</p>
+
+<p>
+If those don't work, the full set of keys recognized by CHIP-8 is mapped like this:
+</p>
+
+<center>
+  <table>
+    <thead>
+      <tr>
+        <th colspan=4>COSMAC VIP</th>
+        <th colspan=4>What to press</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td> <td>2</td> <td>3</td> <td>C</td>
+        <td>1</td> <td>2</td> <td>3</td> <td>4</td>
+      </tr>
+      <tr>
+        <td>4</td> <td>5</td> <td>6</td> <td>D</td>
+        <td>Q</td> <td>W</td> <td>E</td> <td>R</td>
+      </tr>
+      <tr>
+        <td>7</td> <td>8</td> <td>9</td> <td>E</td>
+        <td>A</td> <td>S</td> <td>D</td> <td>F</td>
+      </tr>
+      <tr>
+        <td>A</td> <td>0</td> <td>B</td> <td>F</td>
+        <td>Z</td> <td>X</td> <td>C</td> <td>V</td>
+      </tr>
+    </tbody>
+  </table>
+</center>
+
+<p>
+You can press <tt>=</tt> (equals) and <tt>-</tt> (minus) to speed up and slow down emulation between 1&times; and 8&times;.
+</p>
+
+<p>
+CHIP-8 program files (usually ending with <tt>.ch8</tt>) can be dragged and dropped into the chip8run window to run them.
+</p>
+
+<h2>Games</h2>
+
+<p>
+The following games can be played here with chip8run, sourced from John Earnest's <a href="https://johnearnest.github.io/chip8Archive/">CHIP-8 Archive</a>.
+</p>
+
+<div class="rom-list">
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/chromatophore/masquer8.ch8">
+      <img src="img/masquer8.png">
+    </a>
+    Masquer8 by chromatophore
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/caveexplorer.ch8">
+      <img src="img/caveexplorer.png">
+    </a>
+    Cave Explorer by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/outlaw.ch8">
+      <img src="img/outlaw.png">
+    </a>
+    Outlaw by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/slipperyslope.ch8">
+      <img src="img/slipperyslope.png">
+    </a>
+    Slippery Slope by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/snek.ch8">
+      <img src="img/snek.png">
+    </a>
+    Snek by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/mattbooth/badkaijuju.ch8">
+      <img src="img/badkaijuju.png">
+    </a>
+    Bad Kaiju Ju by mattbooth
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/rectus/tank.ch8">
+      <img src="img/tank.png">
+    </a>
+    Tank! by rectus
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/sharpenedspoon/br8kout.ch8">
+      <img src="img/br8kout.png">
+    </a>
+    Br8kout by sharpenedspoon
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/systemlogoff/8ceattourny_d1.ch8">
+      <img src="img/8ceattourny_d1.png">
+    </a>
+    8ce 8ttorny - Disk 1 by systemlogoff
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/systemlogoff/8ceattourny_d2.ch8">
+      <img src="img/8ceattourny_d2.png">
+    </a>
+    8ce 8ttorny - Disk 2 by systemlogoff
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/systemlogoff/8ceattourny_d3.ch8">
+      <img src="img/8ceattourny_d3.png">
+    </a>
+    8ce 8ttorny - Disk 3 by systemlogoff
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/systemlogoff/octoachip8story.ch8">
+      <img src="img/octoachip8story.png">
+    </a>
+    Octo: a Chip 8 Story by systemlogoff
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/systemlogoff/octorancher.ch8">
+      <img src="img/octorancher.png">
+    </a>
+    Octo Rancher by systemlogoff
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/systemlogoff/petdog.ch8">
+      <img src="img/petdog.png">
+    </a>
+    Pet Dog by systemlogoff
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/pumpkindressup/pumpkindressup.ch8">
+      <img src="img/pumpkindressup.png">
+    </a>
+    Pumpkin Dreess Up by systemlogoff
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/systemlogoff/rps.ch8">
+      <img src="img/rps.png">
+    </a>
+    RPS by systemlogoff
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/tinaun/down8.ch8">
+      <img src="img/down8.png">
+    </a>
+    down8 by tinaun
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/tobiasvl/mini-lights-out.ch8">
+      <img src="img/mini-lights-out.png">
+    </a>
+    Mini Lights Out by tobiasvl
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/todpunk/flightrunner.ch8">
+      <img src="img/flightrunner.png">
+    </a>
+    Flight Runner by todpunk
+  </div>
+
+</div>
+
+<h2>Demos</h2>
+
+<p>
+The following demos can be played here with chip8run, sourced from John Earnest's <a href="https://johnearnest.github.io/chip8Archive/">CHIP-8 Archive</a>.
+</p>
+
+<div class="rom-list">
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/octojam1title.ch8">
+      <img src="img/octojam1title.png">
+    </a>
+    Octojam 1 Title by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/octojam2title.ch8">
+      <img src="img/octojam2title.png">
+    </a>
+    Octojam 2 Title by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/octojam3title.ch8">
+      <img src="img/octojam3title.png">
+    </a>
+    Octojam 3 Title by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/octojam4title.ch8">
+      <img src="img/octojam4title.png">
+    </a>
+    Octojam 4 Title by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/octojam5title.ch8">
+      <img src="img/octojam5title.png">
+    </a>
+    Octojam 5 Title by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/octojam6title.ch8">
+      <img src="img/octojam6title.png">
+    </a>
+    Octojam 6 Title by johnearnest
+  </div>
+
+  <div class="item">
+    <a href="chip8run.html?file=roms/johnearnest/octojam7title.ch8">
+      <img src="img/octojam7title.png">
+    </a>
+    Octojam 7 Title by johnearnest
+  </div>
+
+</div>
+
+<h2>Source Code</h2>
+
+<p>
+The chip8run source code can be found at: <a href="https://github.com/tung/chip8run">https://github.com/tung/chip8run</a>
+</p>
+
+</body>
+
+</html>
